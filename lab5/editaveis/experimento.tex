@@ -3,16 +3,19 @@
 \subsection{Materiais Utilizados}
 	Os materiais usados para o experimento foram:
 	\begin{itemize}
-		\item 1 Multímetro
+		\item 1 Osciloscópio
 		\item 1 Fonte AC-DC
-		\item 2 Resistores de 50$\Omega$
-		\item 3 Resistores de 150$\Omega$ 
+		\item 1 Resistores de 50$\Omega$
+		\item 1 Indutor 300mH
+		\item 3 Capacitores de 10uF
+		\item 3 Resistores de 100$\Omega$ 
+		\item 3 Chaves interruptoras
 		\item cabos (diversos)
 	\end{itemize}
 
 \subsection{Cálculos}
 	
-	O circuito para o experimento está representado na Figura \ref{cic}.
+	O circuito para o experimento está representado na Figura \ref{cic} onde, SA=9$V_{RMS}$, RA=50$\Omega$, CA=C2=C3=10uF, LA=330mH E R1=R2=R3=100$\Omega$.
 
 		\begin{figure}[htbp]
 			\centering
@@ -21,38 +24,41 @@
 			\label{cic}
 		\end{figure}
 	
-	\subsubsection{Tenssão de Thevenín}
+	Como mostrado na Figura \ref{cic}: \textit{SA}, \textit{RA}, \textit{CA} e \textit{LA} são invariantes, logo podemos transformar esses quatro elementos em um equivalente de \textit{Thevenín}. A tensão da fonte \textit{SA} $\left( 9 V_{RMS} \right)$ teve seu valor efetivo substituído pelo seu valor de pico $\left( 12.72V \right)$.
+
+	\subsubsection{Tensão de \textit{Thevenín}}
 	
-		Para o cálculo da tensão de Thevenín podemos retirar a resistência $R_{3}$ poís como seu segundo terminal não está ligado a nenhum elemento a medição da tensão de Thevenín será igual em quaisquer dos seus terminais. Usando o método dos nós se colocarmos a referência no nó inferior só teremos a tensão no nó (tensão de thevenín) desconhecida. As Equação \ref{eqn-vth} mostra esse procedimento.
+	Para o cálculo da tensão de Thevenín podemos retirar o indutor \textit{LA} poís como seu segundo terminal não está ligado a nenhum dos elemento como mostra a Figura \ref{vth}, dessa forma o circuito para cálculo da tensão de \textit{Thevenín} se resume em um divisor de tensão onde a tensão no capacitor será a tensão de \textit{Thevenín} $\left( V_{TH} \right)$ As Equação \ref{eqn-vth} mostra esse procedimento. 
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.4]{images/fig-vth}
+			\caption{Esquemático Circuito Tensão de Thevenín}
+			\label{fig-vth}
+		\end{figure}
 
 		
 		\begin{equation} \label{eqn-vth}
 			\begin{split}
-				\frac{V_{TH} - 12}{R_{1}} + \frac{V_{TH} + 5}{R_{2}} = 0 \\
-				V_{TH} \cdot \left( \frac{1}{50} + \frac{1}{150} \right) = \frac{12}{50} - \frac{5}{150} \\
-				V_{TH} = 7.75V
+				V_{TH} = \frac{Z_{CA}}{Z_{CA} + RA} \cdot V_{SA} \\
+				V_{TH} = Z_{LA} + RA//Z_{CA} \\
+				V_{TH} = \frac{\frac{1}{j\cdot \omega \cdot CA}}{\frac{1}{j\cdot \omega \cdot CA} + RA} \cdot SA\\
+				V_{TH} = \frac{12.72V}}{1 + j \cdot 0.188} = \frac{9V_{RMS}}{1 + j \cdot 0.188} \cdot \frac{{1 - j \cdot 0.188}}{1 - j \cdot 0.188} \\
+				V_{TH} = 12.51 \phase{-11.92^{\circ}} V_{P}
+
 			\end{split}
 		\end{equation}
 
-	\subsubsection{Impedância de Thevenín}
+	\subsubsection{Impedância de \textit{Thevenín}}
 	
-		Para o cálculo da impedância de Thevenín devemos substituir as fontes de 12V e de 5V por curto circuitos, como mostra a Figura \ref{fig-zth}. 
-		
-		\begin{figure}[htbp]
-			\centering
-				\includegraphics[scale=0.4]{images/fig-zth}
-			\caption{Esquemático Circuito Impedância de Thevenín}
-			\label{fig-zth}
-		\end{figure}
-
-		A impedância equivalente é calculada pela Equação \ref{eqn-zth}.
+		Para o cálculo da impedância de Thevenín devemos substituir a fonte de \textit{SA} por um curto, dessa forma a impedância de \textit{Thevenín} será dada pela associação em paralelo entre o capacitor e o resistor, associada em série com o indutor. A impedância equivalente é calculada pela Equação \ref{eqn-zth}. 
 
 		
 		\begin{equation} \label{eqn-zth}
 			\begin{split}
-				Z_{TH} = R_{3} + R_{1}//R_{2} \\
-				Z_{TH} = R_{3} + \frac{R_{1} \cdot R_{2}}{R_{1} + R_{2}} \\
-				Z_{TH} = 87.5 \Omega				
+				Z_{TH} = Z_{LA} + RA//Z_{CA} \\
+				Z_{TH} = \frac{RA \cdot \frac{1}{j \cdot \omega \cdot CA}}{RA + \frac{1}{j \cdot \omega \cdot CA}} + j \cdot \omega \cdot LA
+				Z_{TH}= 114.658 \phase{65.094^{\circ}} \Omega = 48.284 + 103.995\cdot j \Omega
 			\end{split}
 		\end{equation}
 
@@ -72,24 +78,47 @@
 
 		
 		\begin{equation} \label{eqn-th}
-			\begin{split}
-				V_{L} \left( Z_{L} \right) = \frac{Z_{L}}{87.5 + Z_{L}} 			
-			\end{split}
+			V_{L} = \frac{Z_{L}}{ Z_{L} + 114.658 \phase{65.094^{\circ}}}  \cdot 12.51 \phase{-11.92^{\circ}} V
 		\end{equation}
 
 		
-		Para cargas $Z_{L}$ de $150\Omega$ e $75\Omega$ a tensão nas mesmas será de respectivamente 4.89V (159.72mW) e 3.58V (170.59mW). 
+	\subsubsection{Chave Posição K1}}
+		Com a chave na posição K1 a carga será apenas um resistor $R_{1}$ de $150\Omega$, usando a Equação \ref{eqn-th} podemos obter a tensão na carga tal que: $V_{L} = 8.379 \phase{-38.35^{\circ}}} V$.
 		
+
+	\subsubsection{Chave Posição K2}}
+		Com a chave na posição K2 a carga será um resistor $R_{2}$ de $150\Omega$ associado em série com um capacitor $C_{2}$ de 10uF, usando a Equação \ref{zlk2} podemos obter a impedância equivalente na carga.
+
+		\begin{equation} \label{zlk2}
+			Z_{L} = R_{1} + C_{1} = 150 + \frac{1}{j \cdot 2 \cdot \pi \cdot 10 \cdot 10^-6} = 304.733 \phase{60.51^{\circ}} \Omega
+		\end{equation}
+
+		Usando a Equação \ref{eqn-th} podemos obter a tensão na carga tal que: $V_{L} = 14.913 \phase{-33.67^{\circ}}} V$.
+
+	\subsubsection{Chave Posição K3}}
+
+		Com a chave na posição K3 a carga será um resistor $R_{3}$ de $150\Omega$ associado em paralelo com um capacitor $C_{3}$ de 10uF, usando a Equação \ref{zlk3} podemos obter a impedância equivalente na carga.
+
+		\begin{equation} \label{zlk3}
+			Z_{L}=\frac{150 \ cdot \frac{1}{j \cdot 2 \cdot \pi \cdot 10 \cdot 10^-6}}{150 + \frac{1}{j \cdot 2 \cdot \pi \cdot 10 \cdot 10^-6}} = 130.569 \phase{-29.49^{\circ}} \Omega
+		\end{equation}
+
+		Usando a Equação \ref{eqn-th} podemos obter a tensão na carga tal que: $V_{L} = 9.793 \phase{-54.95^{\circ}}} V$.
 
 
 \subsection{Procedimento Experimental}
-Primeiramente foi montado o circuito sem ligação com a fonte e foi medida a Resistência equivalente com o multímetro. Após o mesmo foram adicionadas as fontes e o circuito foi montado e a tensão de Thevenín foi medida com o voltímetro. Por último foi montado o circuito com cargas de $150\Omega$ e $75\Omega$ e foram medidas as tensões respectivas nas cargas.
+O circuito foi montado e com todas as chaves abertas foi medida a tensão de Thevenín foi medida com o voltímetro. As chaves foram fechadas uma por uma e as tensões nas cargas foram medidas com o uso do osciloscópio.
 
 		\begin{figure}[htbp]
 			\centering
 				\includegraphics[scale=0.12]{images/diagram.png}
 			\caption{Diagrama de Montagem} 
-			\label{diagram1}
+			\label{diagram}
 		\end{figure}
 
-
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.12]{images/cic-real.png}
+			\caption{Circuito Montado na Bancada} 
+			\label{cic-real}
+		\end{figure}
