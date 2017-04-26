@@ -1,0 +1,63 @@
+% Template for FPL 2012 papers; to be used with:
+%          spconf.sty   - ICASSP/ICIP LaTeX style file
+%          IEEEtran.bst - IEEE bibliography style file
+
+% Created:  Apr-May 2005 - Riku Uusikartano -- riku.uusikartano@tut.fi
+% Modified: March-2012 - Daniel Mu�oz Arboleda -- damuz@unb.br
+%
+% Modified: April-2017 - Joao Guimaraes	-- joaoguimaraes31@gmail.com
+% --------------------------------------------------------------------------
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{fixos/spconf}
+\usepackage{amsmath,epsfig}
+\usepackage[brazilian]{babel} % Suporte para o Portugu�s
+\usepackage[latin1]{inputenc} % Suporte para acentua��o sem necessidade dos comandos especiais.
+\usepackage[]{subfigure}
+\usepackage[portuguese,algoruled,longend]{algorithm2e}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{dblfloatfix}
+\usepackage{fancyhdr,floatpag}
+\usepackage[margin=3cm]{geometry}
+
+\input{editaveis/dadospessoais.tex}
+
+%%pages line numbers
+\pagestyle{fancy}
+\fancyhf{}% Clear page header/footer
+\renewcommand{\headrulewidth}{0pt}% No header rule
+\fancyfoot[C]{\thepage}
+\floatpagestyle{fancy}
+\pagenumbering{arabic}
+
+
+\hyphenation{Tam-pe-re ela-bo-ra-cao}
+
+
+\begin{document}
+\input{fixos/capa.tex}
+
+\tableofcontents
+\newpage
+
+\input{editaveis/introducao.tex}
+\input{editaveis/objetivos.tex}
+\input{editaveis/experimento.tex}
+\input{editaveis/resultados.tex}
+\input{editaveis/conclusoes.tex}
+
+
+\small
+% IEEEtran is a LaTeX style file defining the reference formatting.
+% -----------------------------------------------------------------
+\bibliographystyle{IEEEtran}
+\bibliography{fixos/IEEEabrv,fixos/labrefs}
+%\bibliography{IEEEabrv,fpl_refs}
+
+
+\end{document}
