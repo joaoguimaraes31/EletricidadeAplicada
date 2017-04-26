@@ -1,0 +1,95 @@
+\section{Experimento}
+
+\subsection{Materiais Utilizados}
+	Os materiais usados para o experimento foram:
+	\begin{itemize}
+		\item 1 Multímetro
+		\item 1 Fonte AC-DC
+		\item 2 Resistores de 50$\Omega$
+		\item 3 Resistores de 150$\Omega$ 
+		\item cabos (diversos)
+	\end{itemize}
+
+\subsection{Cálculos}
+	
+	O circuito para o experimento está representado na Figura \ref{cic}.
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.4]{images/cic}
+			\caption{Esquemático Circuito}
+			\label{cic}
+		\end{figure}
+	
+	\subsubsection{Tenssão de Thevenín}
+	
+		Para o cálculo da tensão de Thevenín podemos retirar a resistência $R_{3}$ poís como seu segundo terminal não está ligado a nenhum elemento a medição da tensão de Thevenín será igual em quaisquer dos seus terminais. Usando o método dos nós se colocarmos a referência no nó inferior só teremos a tensão no nó (tensão de thevenín) desconhecida. As Equação \ref{eqn-vth} mostra esse procedimento.
+
+		
+		\begin{equation} \label{eqn-vth}
+			\begin{split}
+				\frac{V_{TH} - 12}{R_{1}} + \frac{V_{TH} + 5}{R_{2}} = 0 \\
+				V_{TH} \cdot \left( \frac{1}{50} + \frac{1}{150} \right) = \frac{12}{50} - \frac{5}{150} \\
+				V_{TH} = 7.75V
+			\end{split}
+		\end{equation}
+
+	\subsubsection{Impedância de Thevenín}
+	
+		Para o cálculo da impedância de Thevenín devemos substituir as fontes de 12V e de 5V por curto circuitos, como mostra a Figura \ref{fig-zth}. 
+		
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.4]{images/fig-zth}
+			\caption{Esquemático Circuito Impedância de Thevenín}
+			\label{fig-zth}
+		\end{figure}
+
+		A impedância equivalente é calculada pela Equação \ref{eqn-zth}.
+
+		
+		\begin{equation} \label{eqn-zth}
+			\begin{split}
+				Z_{TH} = R_{3} + R_{1}//R_{2} \\
+				Z_{TH} = R_{3} + \frac{R_{1} \cdot R_{2}}{R_{1} + R_{2}} \\
+				Z_{TH} = 87.5 \Omega				
+			\end{split}
+		\end{equation}
+
+		
+	\subsubsection{Circuito Equivalente de Thevenín}
+	
+		O Circuito Equivalente de Thevenín esta representado na Figura \ref{fig-th}. 
+		
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.4]{images/fig-th}
+			\caption{Esquemático Circuito Equivalente de Thevenín}
+			\label{fig-th}
+		\end{figure}
+
+		A tensão na carga $Z_{L}$ pode ser cálculada facilmente pela Equação \ref{eqn-th}.
+
+		
+		\begin{equation} \label{eqn-th}
+			\begin{split}
+				V_{L} \left( Z_{L} \right) = \frac{Z_{L}}{87.5 + Z_{L}} 			
+			\end{split}
+		\end{equation}
+
+		
+		Para cargas $Z_{L}$ de $150\Omega$ e $75\Omega$ a tensão nas mesmas será de respectivamente 4.89V (159.72mW) e 3.58V (170.59mW). 
+		
+
+
+\subsection{Procedimento Experimental}
+Primeiramente foi montado o circuito sem ligação com a fonte e foi medida a Resistência equivalente com o multímetro. Após o mesmo foram adicionadas as fontes e o circuito foi montado e a tensão de Thevenín foi medida com o voltímetro. Por último foi montado o circuito com cargas de $150\Omega$ e $75\Omega$ e foram medidas as tensões respectivas nas cargas.
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.12]{images/diagram.png}
+			\caption{Diagrama de Montagem} 
+			\label{diagram1}
+		\end{figure}
+
+

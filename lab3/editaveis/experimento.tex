@@ -1,0 +1,171 @@
+\section{Experimento}
+
+\subsection{Materiais Utilizados}
+	Os materiais usados para o experimento foram:
+	\begin{itemize}
+		\item 1 Ociloscopio Minipa
+		\item 1 Fonte AC-DC
+		\item 1 Interruptor Paralelo
+		\item 2 Resistores de 56$\Omega$
+		\item 3 Resistores de 100$\Omega$ 
+		\item cabos (diversos)
+	\end{itemize}
+
+\subsection{Cálculos}
+	\subsubsection{Circuito 1}
+		O circuito 1 está representado na Figura \ref{cic1}.
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.4]{images/cic1}
+			\caption{Esquemático Circuito 1}
+			\label{cic1}
+		\end{figure}
+		
+		Para simplificar o circuito foi usado o método do Equivalente de Thevenín, para o cálculo da resistência equivalente $R_{TH}$ foi usada a Equação \ref{rth1}.
+		\begin{equation} \label{rth1}
+			\begin{split}
+				R_{TH}=\left[ \left(R_{1}//R_{2}\right) + R_{3}\right] // R_{4}  \\
+				R_{TH}=\frac{\left[ \left( \frac{R_{1} \cdot R_{2}}{R_{1} + R_{2}} \right) + R_{3} \right] \cdot R_{4}}{\left[ \left( \frac{R_{1} \cdot R_{2}}{R_{1} + R_{2}} \right) + R_{3} + R_{4}\right]} \\
+				R_{TH}=\frac{\left[ \left( R_{1} \cdot R_{2} \right) + R_{3} \cdot \left( R_{1} + R_{2} \right) \right] \cdot R_{4}}{\left( R_{1} \cdot R_{2} \right) + \left( R_{1} + R_{2} \right) \cdot \left( R_{3} + R_{4} \right)}
+			\end{split}
+		\end{equation}
+
+Para o cálculo da tensão equivalente $V_{TH}$ foram usados dois divisores de tensão como mostram as Equações \ref{vx} e \ref{vth1} e a Figura \ref{figvx}.
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.4]{images/figvx}
+			\caption{Circuito para o cálculo de $V_{TH}$}
+			\label{figvx}
+		\end{figure}
+
+		\begin{equation} \label{vx}
+			\begin{split}
+				V_{X}=\frac{\left[\left(R_{3} + R_{4}\right)//R_{2}\right]}{\left[ \left(R_{3} + R_{4}\right)//R_{2} \right] + R_{1}} \\			
+				V_{X}=\frac{\left[\frac{\left(R_{3} + R_{4}\right) \cdot R_{2}}{R_{2} + R_{3} + R_{4}}\right]}{\left[\frac{\left(R_{3} + R_{4}\right) \cdot R_{2}}{R_{2} + R_{3} + R_{4}}\right] + R_{1}} \cdot V_{S} \\
+				V_{X}=\frac{\left(R_{3} + R_{4} \right) \cdot R_{2}}{\left(R_{3} + R_{4} \right) \cdot R_{2} + R_{1} \cdot \left( R_{2} + R_{3} + R_{4}\right)} \cdot V_{S} 
+			\end{split}
+		\end{equation}
+		
+		\begin{equation} \label{vth1}
+			\begin{split}
+				V_{TH}=\frac{R_{4}}{R_{3} + R_{4}} \cdot V_{X} \\
+				V_{TH}=\frac{R_{4}}{R_{3} + R_{4}} \cdot \frac{\left(R_{3} + R_{4} \right) \cdot R_{2}}{\left(R_{3} + R_{4} \right) \cdot R_{2} + R_{1} \cdot \left( R_{2} + R_{3} + R_{4}\right)} \cdot V_{S} \\
+				V_{TH}=\frac{R_{2} \cdot R_{4}}{\left(R_{3} + R_{4}\right) \cdot R_{2} + \left(R_{3} + R_{4}\right) \cdot R_{1} + R_{2}\cdot R_{1}}\cdot V_{S} \\
+				V_{TH}=\frac{R_{2} \cdot R_{4}}{\left(R_{3} + R_{4}\right)\cdot\left(R_{1} + R_{2}\right) + R_{1}\cdot R_{2}} \cdot V_{S}
+			\end{split}
+		\end{equation}
+
+O circuito equivalente pode ser mostrado na Figura \ref{thevenin}.
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.4]{images/thevenin}
+			\caption{Equivalente de Thevenín}
+			\label{thevenin}
+		\end{figure}
+
+Usando um divisor de tensão é possível encontrar a Equação \ref{vr51} que descreve a tensão na carga $R_{5}$.
+
+		\begin{equation} \label{vr51}
+			\begin{split}
+				V_{R5}=\frac{R_{5}}{R_{5} + R_{TH}} \cdot V_{TH} \\
+				V_{R5}=\frac{R_{5}}{R_{5} + \frac{\left[ \left( R_{1} \cdot R_{2} \right) + R_{3} \cdot \left( R_{1} + R_{2} \right) \right] \cdot R_{4}}{\left( R_{1} \cdot R_{2} \right) + \left( R_{1} + R_{2} \right) \cdot \left( R_{3} + R_{4} \right)}} \cdot \frac{R_{2} \cdot R_{4}}{\left(R_{3} + R_{4}\right)\cdot\left(R_{1} + R_{2}\right) R_{1}\cdot R_{2}} \cdot V_{S} \\
+			V_{R5}=\frac{R_{2} \cdot R_{4} \cdot R_{5}}{   R_{1} \cdot R_{2} \cdot R_{4} + R_{3} \cdot R_{4} \cdot \left( R_{1} + R_{2} \right) + R_{5}  \cdot \left( R_{1} + R_{2} \right) \cdot \left( R_{3} + R_{4} \right) + R_{1} \cdot R_{2} \cdot R_{5}   } \cdot V_{S}
+			\end{split}
+		\end{equation}
+
+No experimento foram usados os valores de $R_{1}=R_{5}=56\Omega$ e $R_{2}=R_{4}=R_{5}=100\Omega$, a  Tabela \ref{s1} mostra os valores de tensão na carga para diferentes tensões de entrada $V_{R5}$.
+
+\begin{table}[h!]
+\centering
+\caption{Valores da tensão na carga para diferentes entradas}
+\label{s1}
+\begin{tabular}{l|l|l|l|}
+\cline{2-4}
+ & \textit{\textbf{Tensão Contínua}} & \multicolumn{2}{l|}{\textit{\textbf{Tensão Alternada}}} \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{$V_{S}$}}} & 12V & 9$V_{RMS}$ & 12.17$V_{P}$ \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{$V_{R5}$}}} & 1.60V & 1.20$V_{RMS}$ & 1.70$V_{P}$ \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Circuito 2}
+
+		O circuito 2 está representado na Figura \ref{cic2}.
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.4]{images/cic2}
+			\caption{Esquemático Circuito 2}
+			\label{cic2}
+		\end{figure}		
+
+		Para simplificar o circuito foi usado o método do Equivalente de Thevenín, para o cálculo da resistência equivalente $R_{TH}$ foi usada a Equação \ref{rth2}.
+		\begin{equation} \label{rth2}
+			\begin{split}
+				R_{TH}=R_{1}//R_{2}//\left( R_{3} + R_{4} \right) \\
+				R_{TH}=\frac{\left(\frac{R_{1}\cdot R_{2}}{R_{1} + R_{2}}\right) \cdot \left( R_{3} + R_{4} \right)}{\left(\frac{R_{1}\cdot R_{2}}{R_{1} + R_{2}}\right) + R_{3} + R_{4}} \\
+				R_{TH}=\frac{R_{1} \cdot R_{2} \cdot \left( R_{3} + R_{4} \right)}{\left( R_{1} + R_{2} \right) \cdot \left( R_{3} + R_{4} \right) + R_{1} \cdot R_{2}}
+			\end{split}
+		\end{equation}
+Para o cálculo de $V_{TH}$ foi usado um divisor de tensão como mostra a Equação \ref{vth2}.
+
+		\begin{equation} \label{vth2}
+			\begin{split}
+				V_{TH}=\frac{R_{2}//\left( R_{3} + R_{4} \right)}{R_{2}//\left( R_{3} + R_{4} \right) + R_{1}} \\
+				V_{TH}=\frac{\frac{R_{2}\cdot \left( R_{3} + R_{4} \right)}{R_{2} + R_{3} + R_{4}}}{\frac{R_{2}\cdot \left( R_{3} + R_{4} \right)}{R_{2} + R_{3} + R_{4}} + R_{1}} \cdot V_{S} \\
+				V_{TH}=\frac{R_{2}\cdot \left( R_{3} + R_{4} \right)}{R_{2}\cdot \left( R_{3} + R_{4} \right) + R_{1}\cdot \left( R_{2} + R_{3} + R_{4} \right)}\cdot V_{S} \\
+				V_{TH}=\frac{R_{2}\cdot \left( R_{3} + R_{4} \right)}{\left( R_{1} + R_{2} \right)\cdot \left( R_{3} + R_{4} \right) + R_{1} \cdot R_{2}} \cdot V_{S}
+			\end{split}
+		\end{equation}
+
+O circuito equivalente pode ser mostrado na Figura \ref{thevenin}.
+Usando um divisor de tensão é possível encontrar a Equação \ref{vr52} que descreve a tensão na carga $R_{5}$.
+
+		\begin{equation} \label{vr52}
+			\begin{split}
+				V_{R5}=\frac{R_{5}}{R_{5} + R_{TH}} \cdot V_{TH} \\
+				V_{R5}=\frac{R_{5}}{R_{5} + \frac{R_{1} \cdot R_{2} \cdot \left( R_{3} + R_{4} \right)}{\left( R_{1} + R_{2} \right) \cdot \left( R_{3} + R_{4} \right) + R_{1} \cdot R_{2}}} \cdot \frac{R_{2}\cdot \left( R_{3} + R_{4} \right)}{\left( R_{1} + R_{2} \right)\cdot \left( R_{3} + R_{4} \right) + R_{1} \cdot R_{2}} \cdot V_{S} \\
+				V_{R5}=\frac{R_{2} \cdot R_{5} \cdot \left( R_{3} + R_{4} \right)}{R_{1}\cdot R_{2}\cdot \left( R_{3} + R_{4} \right) + R_{5} \cdot \left[ \left( R_{1} + R_{2} \right)\cdot \left( R_{3} + R_{4} \right) + R_{1} \cdot R_{2} \right]} \cdot V_{S} \\
+				V_{R5} = \frac{R_{2} \cdot R_{5}}{R_{1} \cdot R_{2} \left( 1 + \frac{R_{5}}{R_{3} + R_{4}} \right) + R_{5} \cdot \left( R_{1} + R_{2} \right)} \cdot V_{S}
+			\end{split}
+		\end{equation}
+
+No experimento foram usados os valores de $R_{1}=R_{5}=56\Omega$ e $R_{2}=R_{4}=R_{5}=100\Omega$, a  Tabela \ref{s1} mostra os valores de tensão na carga para diferentes tensões de entrada $V_{R5}$.
+
+\begin{table}[h!]
+\centering
+\caption{Valores da tensão na carga para diferentes entradas}
+\label{s1}
+\begin{tabular}{l|l|l|l|}
+\cline{2-4}
+ & \textit{\textbf{Tensão Contínua}} & \multicolumn{2}{l|}{\textit{\textbf{Tensão Alternada}}} \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{$V_{S}$}}} & 12V & 9$V_{RMS}$ & 12.17$V_{P}$ \\ \hline
+\multicolumn{1}{|l|}{\textit{\textbf{$V_{R5}$}}} & 4.23V & 2.99$V_{RMS}$ & 4.48$V_{P}$ \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Procedimento Experimental}
+Os dois circuitos foram combinados em um só com o uso de uma chave interruptora e montados de acordo com o diagrama da Figura \ref{diagram1} para corrente contínua e de acordo com o diagrama da Figura \ref{diagram2} para corrente alternada na bancada como mostra a Figura \ref{cicban} e foram medidas as tensões na carga $R_{5}$.
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.12]{images/diagram1.png}
+			\caption{Diagrama de Montagem DC} 
+			\label{diagram1}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.15]{images/diagram2.png}
+			\caption{Diagrama de Montagem AC}
+			\label{diagram2}
+		\end{figure}
+
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[scale=0.35]{images/cicban.png}
+			\caption{Circuitos montados na bancada}
+			\label{cicban}
+		\end{figure}
