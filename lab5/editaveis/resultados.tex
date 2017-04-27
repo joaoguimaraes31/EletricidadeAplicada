@@ -1,17 +1,18 @@
 \section{Resultados} 
-Os resultados das medições das tensões na carga $Z_{L}$ e a tensão e a impedância de thevenín estão mostradas na Tabela \ref{results}.
-
+Os resultados das medições das tensões na carga $Z_{L}$ para diferentes chaves fechadas e a tensão de \textit{Thevenín} estão mostradas na Tabela \ref{results}.
 
 \begin{table}[h!]
 \centering
-\caption{Resultados}
-\label{results}
-\begin{tabular}{l|l|l|l|}
-\cline{2-4}
- & \textbf{Valor Medido} & \textbf{Valor Teórico} & \textbf{Erro} \\ \hline
-\multicolumn{1}{|l|}{\textbf{$R_{TH}$}} & $94\Omega$ & $87.5\Omega$ & 7.42\% \\ \hline
-\multicolumn{1}{|l|}{\textbf{$V_{TH}$}} & 7.35V & 7.75V & 5.16\% \\ \hline
-\multicolumn{1}{|l|}{\textbf{$V_{L}$ ($Z_{L}=150\Omega$)}} & 4.54V & 4.89V & 7.15\% \\ \hline
-\multicolumn{1}{|l|}{\textbf{$V_{L}$ ($Z_{L}=75\Omega$)}} & 3.29V & 3.58V & 8.10\% \\ \hline
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{Teoria}} & \multicolumn{2}{c|}{\textbf{Prática}} & \multicolumn{2}{c|}{\textbf{Erro (\%)}} \\ \cline{2-7} 
+\multicolumn{1}{l|}{} & \textit{\textbf{Módulo (V)}} & \textit{\textbf{Fase  (us)}} & \textit{\textbf{Módulo (V)}} & \textit{\textbf{Fase (us)}} & \textit{\textbf{Módulo}} & \textit{\textbf{Fase}} \\ \hline
+\multicolumn{1}{|c|}{\textbf{$V_{S}$}} & 12.73 & 0 & 12.80 $\pm$ 3.1\% & 0 & 0.62 & 0 \\ \hline
+\multicolumn{1}{|c|}{\textbf{$V_{TH}$}} & 12.51 & -490.00 & 12.75 $\pm$ 3.1\% & -500.00 $\pm$ 4.0\% & 1.94 & 2.04 \\ \hline
+\multicolumn{1}{|c|}{\textbf{$V_{K1}$}} & 8.38 & -1775.51 & 8.00V $\pm$ 5.0\% & -1800.00 $\pm$ 2.7\% & 4.51 & 1.18 \\ \hline
+\multicolumn{1}{|c|}{\textbf{$V_{K2}$}} & 14.91 & -1484.51 & 14.40 $\pm$ 2.8\% & -1550.00 $\pm$ 3.2\% & 3.41 & 4.23 \\ \hline
+\multicolumn{1}{|c|}{\textbf{$V_{SK3}$}} & 9.79 & -2497.45 & 8.80V $\pm$ 4.5\% & -2700.00 $\pm$ 3.7\% & 10.13 & 8.11 \\ \hline
 \end{tabular}
 \end{table}
