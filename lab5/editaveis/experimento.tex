@@ -28,7 +28,7 @@
 
 	\subsubsection{Tensão de \textit{Thevenín}}
 	
-	Para o cálculo da tensão de Thevenín podemos retirar o indutor \textit{LA} poís como seu segundo terminal não está ligado a nenhum dos elemento como mostra a Figura \ref{vth}, dessa forma o circuito para cálculo da tensão de \textit{Thevenín} se resume em um divisor de tensão onde a tensão no capacitor será a tensão de \textit{Thevenín} $\left( V_{TH} \right)$ As Equação \ref{eqn-vth} mostra esse procedimento. 
+	Para o cálculo da tensão de Thevenín podemos retirar o indutor \textit{LA} poís seu segundo terminal não está ligado a nenhum dos elemento como mostra a Figura \ref{fig-vth}, dessa forma o circuito para cálculo da tensão de \textit{Thevenín} se resume em um divisor de tensão onde a tensão no capacitor será a tensão de \textit{Thevenín} $\left( V_{TH} \right)$ A Equação \ref{eqn-vth} mostra esse procedimento. 
 
 		\begin{figure}[htbp]
 			\centering
@@ -41,11 +41,8 @@
 		\begin{equation} \label{eqn-vth}
 			\begin{split}
 				V_{TH} = \frac{Z_{CA}}{Z_{CA} + RA} \cdot V_{SA} \\
-				V_{TH} = Z_{LA} + RA//Z_{CA} \\
-				V_{TH} = \frac{\frac{1}{j\cdot \omega \cdot CA}}{\frac{1}{j\cdot \omega \cdot CA} + RA} \cdot SA\\
-				V_{TH} = \frac{12.72V}}{1 + j \cdot 0.188} = \frac{9V_{RMS}}{1 + j \cdot 0.188} \cdot \frac{{1 - j \cdot 0.188}}{1 - j \cdot 0.188} \\
-				V_{TH} = 12.51 \phase{-11.92^{\circ}} V_{P}
-
+				V_{TH} = \frac{\frac{1}{j \cdot 2 \cdot \pi \cdot 60 \cdot 10 \cdot 10^{-6}}}{\frac{1}{j \cdot 2 \cdot \pi \cdot 60 \cdot 10 \cdot 10^{-6}} + 150} \cdot 12.72 \phase{0^{\circ}} V \\
+				V_{TH}= 12.51 \phase{-11.92^{\circ}} V
 			\end{split}
 		\end{equation}
 
@@ -69,7 +66,7 @@
 		
 		\begin{figure}[htbp]
 			\centering
-				\includegraphics[scale=0.4]{images/fig-th}
+				\includegraphics[scale=0.25]{images/fig-th}
 			\caption{Esquemático Circuito Equivalente de Thevenín}
 			\label{fig-th}
 		\end{figure}
@@ -82,28 +79,28 @@
 		\end{equation}
 
 		
-	\subsubsection{Chave Posição K1}}
-		Com a chave na posição K1 a carga será apenas um resistor $R_{1}$ de $150\Omega$, usando a Equação \ref{eqn-th} podemos obter a tensão na carga tal que: $V_{L} = 8.379 \phase{-38.35^{\circ}}} V$.
+	\subsubsection{Chave Posição K1}
+		Com a chave na posição K1 a carga será apenas um resistor $R_{1}$ de $150\Omega$, usando a Equação \ref{eqn-th} podemos obter a tensão na carga tal que: $V_{L} = 8.379 \phase{-38.35^{\circ}} V$.
 		
 
-	\subsubsection{Chave Posição K2}}
+	\subsubsection{Chave Posição K2}
 		Com a chave na posição K2 a carga será um resistor $R_{2}$ de $150\Omega$ associado em série com um capacitor $C_{2}$ de 10uF, usando a Equação \ref{zlk2} podemos obter a impedância equivalente na carga.
 
 		\begin{equation} \label{zlk2}
-			Z_{L} = R_{1} + C_{1} = 150 + \frac{1}{j \cdot 2 \cdot \pi \cdot 10 \cdot 10^-6} = 304.733 \phase{60.51^{\circ}} \Omega
+			Z_{L} = R_{2} + C_{2} = 150 + \frac{1}{j \cdot 2 \cdot \pi \cdot 10 \cdot 10^{-6}} = 304.733 \phase{60.51^{\circ}} \Omega
 		\end{equation}
 
-		Usando a Equação \ref{eqn-th} podemos obter a tensão na carga tal que: $V_{L} = 14.913 \phase{-33.67^{\circ}}} V$.
+		Usando a Equação \ref{eqn-th} podemos obter a tensão na carga tal que: $V_{L} = 14.913 \phase{-33.67^{\circ}} V$.
 
-	\subsubsection{Chave Posição K3}}
+	\subsubsection{Chave Posição K3}
 
 		Com a chave na posição K3 a carga será um resistor $R_{3}$ de $150\Omega$ associado em paralelo com um capacitor $C_{3}$ de 10uF, usando a Equação \ref{zlk3} podemos obter a impedância equivalente na carga.
 
 		\begin{equation} \label{zlk3}
-			Z_{L}=\frac{150 \ cdot \frac{1}{j \cdot 2 \cdot \pi \cdot 10 \cdot 10^-6}}{150 + \frac{1}{j \cdot 2 \cdot \pi \cdot 10 \cdot 10^-6}} = 130.569 \phase{-29.49^{\circ}} \Omega
+			Z_{L}=\frac{150 \cdot \frac{1}{j \cdot 2 \cdot \pi \cdot 10 \cdot 10^-6}}{150 + \frac{1}{j \cdot 2 \cdot \pi \cdot 10 \cdot 10^-6}} = 130.569 \phase{-29.49^{\circ}} \Omega
 		\end{equation}
 
-		Usando a Equação \ref{eqn-th} podemos obter a tensão na carga tal que: $V_{L} = 9.793 \phase{-54.95^{\circ}}} V$.
+		Usando a Equação \ref{eqn-th} podemos obter a tensão na carga tal que: $V_{L} = 9.793 \phase{-54.95^{\circ}} V $.
 
 
 \subsection{Procedimento Experimental}
@@ -111,14 +108,14 @@ O circuito foi montado e com todas as chaves abertas foi medida a tensão de Thev
 
 		\begin{figure}[htbp]
 			\centering
-				\includegraphics[scale=0.12]{images/diagram.png}
+				\includegraphics[scale=0.2]{images/diagram.png}
 			\caption{Diagrama de Montagem} 
 			\label{diagram}
 		\end{figure}
 
 		\begin{figure}[htbp]
 			\centering
-				\includegraphics[scale=0.12]{images/cic-real.png}
+				\includegraphics[scale=0.2]{images/cic-real.png}
 			\caption{Circuito Montado na Bancada} 
 			\label{cic-real}
 		\end{figure}
